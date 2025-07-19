@@ -1,7 +1,7 @@
 def call(String image_name) {
   sshagent(['jenkins-key-git']) {
     sh '''
-      git clone https://github.com/YoussefAzozz/argocd-lab.git && mv argocd-lab argocd-lab-${BUILD_NUMBER}
+      git clone https://github.com/YoussefAzozz/argocd-lab.git
     '''
     dir('argocd-lab') {
     sh """
