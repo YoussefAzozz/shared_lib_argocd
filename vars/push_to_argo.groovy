@@ -8,7 +8,7 @@ def call(String image_environment) {
       git config user.name "jenkins-bot"
       git add deployment.yml
       git commit -m "Jenkins update for ${image_environment}:${BUILD_NUMBER}"
-      git push origin master
+      git push
     '''
   }
 }
