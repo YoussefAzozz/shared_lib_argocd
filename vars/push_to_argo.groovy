@@ -16,6 +16,8 @@ def call(String image_environment) {
             if ! git diff --cached --quiet; then
               git commit -m "Jenkins update for ${image_environment}:${BUILD_NUMBER}"
               git push git@github.com:YoussefAzozz/argocd-lab.git HEAD:master
+              cd ..
+              rm -rf argocd-lab
             else
               echo "No changes to commit"
             fi
