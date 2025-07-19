@@ -1,9 +1,7 @@
 def call(String image_environment) {
   sshagent(['jenkins-key-git']) {
-    sh '''#!/bin/bash
-      set -e
+    sh '''
       cd argocd-lab
-
       git config user.email "jenkins@example.com"
       git config user.name "jenkins-bot"
       git add deployment.yml
