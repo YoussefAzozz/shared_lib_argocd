@@ -8,11 +8,11 @@ def call(String image_name) {
     set -e
 
     # Clone the repo
-    git clone https://${GIT_USER}:${GIT_TOKEN}@github.com/YoussefAzozz/argocd-lab.git
+    git clone https://github.com/YoussefAzozz/argocd-lab.git
     cd argocd-lab
 
     # Modify the image line in deployment.yml
-    sed -i 's|image:.*|image: "${image_tag}"|g' deployment.yml
+    sed -i 's|image:.*|image: "${image_name}:${BUILD_NUMBER}"|g' deployment.yml
     cat deployment.yml
     '''
   }
