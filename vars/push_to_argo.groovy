@@ -8,7 +8,8 @@ def call(String image_environment) {
       git config user.name "jenkins-bot"
       git add deployment.yml
       git commit -m "Jenkins update for ${image_environment}:${BUILD_NUMBER}"
-      git push
+      git config credential.helper '!f() { echo "username=$GIT_USER"; echo "password=$GIT_PASS"; }; f'
+      git push ...
     '''
   }
 }
