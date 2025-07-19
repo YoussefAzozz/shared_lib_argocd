@@ -5,8 +5,6 @@ def call(String image_name) {
     passwordVariable: 'GIT_TOKEN'
   )]) {
     sh '''#!/bin/bash
-    set -e
-
     # Clone the repo
     git clone https://github.com/YoussefAzozz/argocd-lab.git
     cd argocd-lab
