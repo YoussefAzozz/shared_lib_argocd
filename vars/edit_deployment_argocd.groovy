@@ -6,7 +6,7 @@ def call(String image_name) {
   )]) {
     sh '''
       git clone https://github.com/YoussefAzozz/argocd-lab.git
-    ''''
+    '''
     dir('argocd-lab') {
     sh '''
     # Modify the image line in deployment.yml
