@@ -4,6 +4,7 @@ def call(String imageName, String credentialsId) {
             docker build -t ${imageName}:${BUILD_NUMBER} .
             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             docker push ${imageName}:${BUILD_NUMBER}
+            docker rmi ${imageName}:${BUILD_NUMBER}
         """
     }
 }
