@@ -6,7 +6,7 @@ def call(String image_environment) {
 
       git config user.email "jenkins@example.com"
       git config user.name "jenkins-bot"
-      
+      git init
       git add deployment.yml
       
       if ! git diff --cached --quiet; then
