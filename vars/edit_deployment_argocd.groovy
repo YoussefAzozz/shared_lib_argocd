@@ -14,14 +14,6 @@ def call(String image_name) {
     # Modify the image line in deployment.yml
     sed -i 's|image:.*|image: "${image_tag}"|g' deployment.yml
     cat deployment.yml
-
-    # Commit and push
-    git config user.email "jenkins@example.com"
-    git config user.name "jenkins-bot"
-    git init
-    git add deployment.yml
-    git commit -m "Update image tag to '$image_name':${BUILD_NUMBER}"
-    git push https://${GIT_USER}:${GIT_TOKEN}@github.com/YoussefAzozz/argocd-lab.git HEAD:master
     '''
   }
 }
