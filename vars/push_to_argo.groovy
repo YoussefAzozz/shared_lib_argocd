@@ -3,7 +3,6 @@ def call(String image_environment) {
       sh '''
         git config user.email "jenkins@example.com"
         git config user.name "jenkins-bot"
-        git clone https://github.com/YoussefAzozz/argocd-lab.git
         '''
       
         dir('argocd-lab') {
