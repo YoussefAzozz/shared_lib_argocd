@@ -10,12 +10,8 @@ def call(String image_name) {
     cd argocd-lab
 
     # Modify the image line in deployment.yml
-    dir('argocd-lab'){
-    sh '''
     sed -i 's|image:.*|image: "${image_name}:${BUILD_NUMBER}"|g' deployment.yml
     cat deployment.yml
-    '''
-    }
     '''
   }
 }
