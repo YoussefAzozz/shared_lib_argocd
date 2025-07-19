@@ -4,14 +4,15 @@ def call(String image_name) {
     usernameVariable: 'GIT_USER',
     passwordVariable: 'GIT_TOKEN'
   )]) {
-    sh '''#!/bin/bash
-    # Clone the repo
-    git clone https://github.com/YoussefAzozz/argocd-lab.git
-    cd argocd-lab
-
+    sh '''
+      git clone https://github.com/YoussefAzozz/argocd-lab.git
+    ''''
+    dir('argocd-lab') {
+    sh '''
     # Modify the image line in deployment.yml
     sed -i 's|image:.*|image: "${image_name}:${BUILD_NUMBER}"|g' deployment.yml
     cat deployment.yml
     '''
+  }
   }
 }
