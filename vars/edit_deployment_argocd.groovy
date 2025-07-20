@@ -9,7 +9,7 @@ def call(String image_name) {
     cd overlays/prod
     sed -i 's|name: nginx|name: ${image_name}|' kustomization.yml
     sed -i 's|newTag: "1.25"|newTag: "${BUILD_NUMBER}"|' kustomization.yml
-    sed -i 's|replcas: 2|replicas: 4|' patch.yml
+    sed -i 's|replicas: 2|replicas: 4|' patch.yml
     cat patch.yml
     cat kustomization.yml
     """
