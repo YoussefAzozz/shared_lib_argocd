@@ -6,7 +6,7 @@ def call(String image_environment) {
         ssh-keyscan github.com >> ~/.ssh/known_hosts
         '''
       
-        dir('argocd-lab') {
+        dir('argocd-lab/overlays/prod') {
           sh '''
             git config user.email "jenkins@example.com"
             git config user.name "jenkins-bot"
