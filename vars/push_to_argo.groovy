@@ -11,7 +11,7 @@ def call(String image_environment) {
             git config user.email "jenkins@example.com"
             git config user.name "jenkins-bot"
     
-            git add deployment.yml
+            git add kustomization.yml
     
             if ! git diff --cached --quiet; then
               git commit -m "Jenkins update for ${image_environment}:${BUILD_NUMBER}"
