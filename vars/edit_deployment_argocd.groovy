@@ -6,9 +6,9 @@ def call(String image_name) {
     dir('argocd-lab') {
     sh """
     # Modify the image line in deployment.yml
-    sed -i 's|replicas:.*|replicas: 3|g' deployment.yml
-    sed -i 's|image:.*|image: "${image_name}:${BUILD_NUMBER}"|g' deployment.yml
-    cat deployment.yml
+    cd overlays/prod
+    sed -i 's|name: nginx|name: ${image_name}|' kustomization.yaml
+    sed -i 's|newTag: "1.25"|newTag: "${BUILD_NUMBER}"|' kustomization.yaml
     """
   }
   }
